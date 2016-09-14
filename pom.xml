@@ -315,7 +315,7 @@
                             <transformers>
                                 <transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
                                     <manifestEntries>
-                                        <Main-Class>net.whydah.identity.Main</Main-Class>
+                                        <Main-Class>no.cantara.service.Main</Main-Class>
                                     </manifestEntries>
                                 </transformer>
                                 <transformer implementation="org.apache.maven.plugins.shade.resource.ServicesResourceTransformer" />
@@ -343,7 +343,7 @@
                     <daemons>
                         <daemon>
                             <id>${project.name}</id>
-                            <mainClass>net.whydah.identity.Main</mainClass>
+                            <mainClass>no.cantara.service.Main</mainClass>
                             <platforms>
                                 <platform>jsw</platform>
                             </platforms>
@@ -390,7 +390,7 @@
                                     <extraArgument>-XX:PermSize=32m</extraArgument>
                                     <extraArgument>-XX:MaxPermSize=32m</extraArgument>
                                     <extraArgument>-DIAM_MODE=PROD</extraArgument>
-                                    <extraArgument>-DIAM_CONFIG=config_override/useridentitybackend.PROD.properties
+                                    <extraArgument>-DIAM_CONFIG=config_override/microservice-baseline.PROD.properties
                                     </extraArgument>
                                     <!--<extraArgument>-Dlogback.configurationFile=file:config_override/logback.xml</extraArgument>-->
                                 </extraArguments>
