@@ -15,7 +15,9 @@
                 <role>Developer</role>
             </roles>
             <organization>Cantara</organization>
-            <organizationUrl>https://wiki.cantara.no/</organizationUrl>
+            <organizationUrl>
+                https://wiki.cantara.no/display/architecture/Typical+micro+service+technology+stack+(java)/
+            </organizationUrl>
         </developer>
     </developers>
 
@@ -29,7 +31,7 @@
     <scm>
         <developerConnection>scm:git:ssh://git@github.com/cantara/microservice-baseline.git</developerConnection>
         <connection>scm:git:https://github.com/cantara/microservice-baseline.git</connection>
-        <url>https://wiki.cantara.no/</url>
+        <url>https://wiki.cantara.no/display/architecture/Typical+micro+service+technology+stack+(java)</url>
       <tag>HEAD</tag>
   </scm>
 
