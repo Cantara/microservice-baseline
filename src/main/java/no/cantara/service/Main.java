@@ -103,7 +103,7 @@ public class Main {
             server.start();
         } catch (Exception e) {
             log.error("Error during Jetty startup. Exiting", e);
-            System.exit(2);
+            // "System. exit(2);"
         }
         webappPort = connector.getLocalPort();
         log.info("ConfigService started on http://localhost:{}{}", webappPort, CONTEXT_PATH);
