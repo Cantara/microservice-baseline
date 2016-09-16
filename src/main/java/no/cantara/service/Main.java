@@ -85,7 +85,7 @@ public class Main {
         context.setSecurityHandler(securityHandler);
 
         ResourceConfig jerseyResourceConfig = new ResourceConfig();
-        jerseyResourceConfig.packages("no.cantara.service");
+        jerseyResourceConfig.packages("no.cantara");
         ServletHolder jerseyServlet = new ServletHolder(new ServletContainer(jerseyResourceConfig));
         context.addServlet(jerseyServlet, "/*");
 
