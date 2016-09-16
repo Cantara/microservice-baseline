@@ -5,6 +5,8 @@ import org.slf4j.LoggerFactory;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
+import javax.ws.rs.Produces;
+import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import java.io.IOException;
 import java.lang.management.ManagementFactory;
@@ -19,6 +21,7 @@ import java.util.Properties;
  * @author <a href="mailto:asbjornwillersrud@gmail.com">Asbjørn Willersrud</a> 30/03/2016.
  */
 @Path(HealthResource.HEALTH_PATH)
+@Produces(MediaType.APPLICATION_JSON)
 public class HealthResource {
     public static final String HEALTH_PATH = "/health";
     private static final Logger log = LoggerFactory.getLogger(HealthResource.class);

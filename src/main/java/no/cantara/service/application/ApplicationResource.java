@@ -22,9 +22,9 @@ public class ApplicationResource {
     private static final Logger log = LoggerFactory.getLogger(ApplicationResource.class);
     private static final ObjectMapper mapper = new ObjectMapper();
 
-    private final String application="";
-    private final String applications="";
-    private final String applicationStatus="";
+    private final String application="{}";
+    private final String applications="{}";
+    private final String applicationStatus="{}";
 
     @Autowired
     public ApplicationResource() {

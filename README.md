@@ -5,3 +5,14 @@ A typical simple baseline for building good microservices
 
 Documentation
 * https://wiki.cantara.no/display/architecture/Typical+micro+service+technology+stack+(java)
+
+
+Quick build and verify
+* mvn clean install
+* java -jar target/microservice-baseline-0.1-SNAPSHOT.jar
+* wget http://localhost:8086/microservice-baseline/health
+* wget "http://localhost:8086/microservice-baseline/token?grant_type=client_credentials&grant_type=client_credentials&client_id=CLIENT_ID&client_secret=CLIENT_SECRET"
+* curl -X POST "http://localhost:8086/microservice-baseline/token?grant_type=client_credentials&grant_type=client_credentials&client_id=CLIENT_ID&client_secret=CLIENT_SECRET"
+* curl -X POST "http://localhost:8086/microservice-baseline/token?grant_type=authorization_code&code=mycode&redirect_uri=http://ocalhost:8086/microservice-baseline/oauth2&client_id=CLIENT_ID&client_secret=CLIENT_SECRET"
+
+

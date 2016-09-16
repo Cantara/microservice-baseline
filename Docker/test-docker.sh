@@ -3,17 +3,19 @@
 # from the image. Use it to test that your Docker configuration builds successfully.
 
 # Change these
-PROJECT_NAME=projectname
-IMAGE_NAME=docker-dev-test
-IMAGE_NAME_DATA=$IMAGE_NAME-data
+PROJECT_NAME=microservices-baseline
+IMAGE_NAME=microservicesbaseline
+IMAGE_NAME_DATA=microservicesbaseline-data
 
-docker rm -v -f $IMAGE_NAME
-docker build -t $IMAGE_NAME .
+sudo docker rm -v -f $IMAGE_NAME
+sudo docker build -t $IMAGE_NAME .
 
-docker create --name $IMAGE_NAME-data $IMAGE_NAME
+sudo docker create --name $IMAGE_NAME_DATA $IMAGE_NAME
 
-docker run -d --name $IMAGE_NAME --volumes-from $IMAGE_NAME_DATA $IMAGE_NAME
+sudo docker run -d -p 8086:8086 --name $IMAGE_NAME --volumes-from $IMAGE_NAME_DATA $IMAGE_NAME
 
-echo "Starting instance. Do 'docker exec -it $IMAGE_NAME bash' to get shell"
 
+echo "Starting instance. Do 'sudo docker exec -it $IMAGE_NAME bash' to get shell"
+
+wget http://localhost:8086/microservice-baseline/health
 

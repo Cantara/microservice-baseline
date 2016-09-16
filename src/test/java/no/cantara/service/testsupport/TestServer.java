@@ -15,6 +15,8 @@ public class TestServer {
     public static final String ADMIN_PASSWORD = "configservice";
 
     private Main main;
+
+
     private String url;
     private Class testClass;
 
@@ -34,11 +36,14 @@ public class TestServer {
         RestAssured.port = main.getPort();
 
         RestAssured.basePath = Main.CONTEXT_PATH;
-        url = "http://localhost:" + main.getPort() + Main.CONTEXT_PATH + ApplicationResource.APPLICATION_PATH;
+        url = "http://localhost:" + main.getPort() + Main.CONTEXT_PATH ;
     }
 
     public void stop() {
         main.stop();
     }
 
+    public String getUrl() {
+        return "http://localhost:" + main.getPort() + Main.CONTEXT_PATH;
+    }
 }
