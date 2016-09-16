@@ -27,4 +27,7 @@ See [test-docker.sh](test-docker.sh).
 
 This script can be run with `./test-docker.sh local` to also run `mvn package` and use jar from development.
 
-### Verify the image  wget http://localhost:8086/microservice-baseline/health
+#### Quickly verify the image
+```bash
+wget http://localhost:8086/microservice-baseline/health
+```
