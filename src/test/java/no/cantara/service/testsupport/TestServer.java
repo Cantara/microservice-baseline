@@ -10,9 +10,7 @@ public class TestServer {
 
     private static final Logger log = LoggerFactory.getLogger(TestServer.class);
 
-
     private Main main;
-
 
     private String url;
     private Class testClass;
