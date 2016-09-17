@@ -3,6 +3,7 @@ package no.cantara.service;
 import no.cantara.service.health.HealthResource;
 import no.cantara.service.oauth2ping.PingResource;
 import no.cantara.simulator.oauth2stubbedserver.OAuth2StubbedServerResource;
+import no.cantara.simulator.oauth2stubbedserver.OAuth2StubbedTokenVerifyResource;
 import no.cantara.util.Configuration;
 import org.eclipse.jetty.security.ConstraintMapping;
 import org.eclipse.jetty.security.ConstraintSecurityHandler;
@@ -13,6 +14,7 @@ import org.eclipse.jetty.server.ServerConnector;
 import org.eclipse.jetty.servlet.ServletContextHandler;
 import org.eclipse.jetty.servlet.ServletHolder;
 import org.eclipse.jetty.util.security.Constraint;
+import org.eclipse.jetty.util.security.Password;
 import org.glassfish.jersey.server.ResourceConfig;
 import org.glassfish.jersey.servlet.ServletContainer;
 import org.slf4j.Logger;
@@ -166,15 +168,22 @@ public class Main {
         pingEndpointConstraintMapping.setPathSpec(PingResource.PING_PATH);
         securityHandler.addConstraintMapping(pingEndpointConstraintMapping);
 
+
+        // Allow tokenverifyerResource to be accessed without authentication
+        ConstraintMapping tokenVerifyConstraintMapping = new ConstraintMapping();
+        tokenVerifyConstraintMapping.setConstraint(new Constraint(Constraint.NONE, Constraint.ANY_ROLE));
+        tokenVerifyConstraintMapping.setPathSpec(OAuth2StubbedTokenVerifyResource.OAUTH2TOKENVERIFY_PATH);
+        securityHandler.addConstraintMapping(tokenVerifyConstraintMapping);
+
         HashLoginService loginService = new HashLoginService("microservice-baseline");
 
         String clientUsername = Configuration.getString("login.user");
         String clientPassword = Configuration.getString("login.password");
-        // loginService.putUser(clientUsername, new Password(clientPassword), new String[]{USER_ROLE});
+        loginService.putUser(clientUsername, new Password(clientPassword), new String[]{USER_ROLE});
 
         String adminUsername = Configuration.getString("login.admin.user");
         String adminPassword = Configuration.getString("login.admin.password");
-        // loginService.putUser(adminUsername, new Password(adminPassword), new String[]{ADMIN_ROLE});
+        loginService.putUser(adminUsername, new Password(adminPassword), new String[]{ADMIN_ROLE});
 
         log.debug("Main instantiated with basic auth clientuser={} and adminuser={}", clientUsername, adminUsername);
         securityHandler.setLoginService(loginService);
