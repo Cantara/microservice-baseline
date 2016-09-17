@@ -87,7 +87,7 @@ public abstract class BaseHttpDeleteHystrixCommand<R> extends HystrixCommand<R> 
 
 
         } catch (Exception ex) {
-            ex.printStackTrace();
+            log.warn("Exception", ex);
             throw new RuntimeException("TAG" + " - Application authentication failed to execute");
         }
     }
