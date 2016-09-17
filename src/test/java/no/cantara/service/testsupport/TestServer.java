@@ -10,13 +10,7 @@ public class TestServer {
 
     private static final Logger log = LoggerFactory.getLogger(TestServer.class);
 
-    public static final String LOGIN_USER = "admin";
-    public static final String LOGIN_PASSWORD = "configservice";
-    public static final String ADMIN_USERNAME = "admin";
-    public static final String ADMIN_PASSWORD = "configservice";
-
     private Main main;
-
 
     private String url;
     private Class testClass;
