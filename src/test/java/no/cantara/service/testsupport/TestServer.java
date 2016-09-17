@@ -2,7 +2,6 @@ package no.cantara.service.testsupport;
 
 import com.jayway.restassured.RestAssured;
 import no.cantara.service.Main;
-import no.cantara.service.application.ApplicationResource;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -11,6 +10,8 @@ public class TestServer {
 
     private static final Logger log = LoggerFactory.getLogger(TestServer.class);
 
+    public static final String LOGIN_USER = "admin";
+    public static final String LOGIN_PASSWORD = "configservice";
     public static final String ADMIN_USERNAME = "admin";
     public static final String ADMIN_PASSWORD = "configservice";
 

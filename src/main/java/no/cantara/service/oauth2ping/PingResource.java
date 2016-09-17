@@ -34,7 +34,8 @@ public class PingResource {
 
         }
         log.trace("pingRequest");
-        String response = String.format("PONG, now=%s", Instant.now());
+        String response = String.format("{ \"response\": \"PONG\",  \"now\":\"%s\"}", Instant.now());
+        //String response = String.format("PONG, now=%s", Instant.now());
         return Response.ok(response).build();
     }
 
