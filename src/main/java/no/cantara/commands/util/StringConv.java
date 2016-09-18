@@ -1,5 +1,6 @@
 package no.cantara.commands.util;
 
+import org.apache.commons.lang.ArrayUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -18,7 +19,7 @@ public class StringConv {
             }
 
         } catch (UnsupportedEncodingException e) {
-            log.warn("UnsupportedEncodingException - returning empty string", e);
+            log.warn("UnsupportedEncodingException - returning empty String", e);
         }
         return "";
     }
@@ -31,8 +32,8 @@ public class StringConv {
         try {
             return str.getBytes("UTF8");
         } catch (UnsupportedEncodingException e) {
-            log.warn("UnsupportedEncodingException - returning null", e);
+            log.warn("UnsupportedEncodingException - returning ArrayUtils.EMPTY_BYTE_ARRAY", e);
         }
-        return null;
+        return ArrayUtils.EMPTY_BYTE_ARRAY;
     }
 }
