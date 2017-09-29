@@ -1,7 +1,7 @@
 package no.cantara.commands.application;
 
 import com.github.kevinsawicki.http.HttpRequest;
-import no.cantara.commands.util.basecommands.BaseHttpPostHystrixCommand;
+import no.cantara.base.command.BaseHttpPostHystrixCommand;
 
 import java.net.URI;
 

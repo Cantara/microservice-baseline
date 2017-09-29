@@ -1,14 +1,15 @@
 package  no.cantara.service.commands.util.basecommands;
 
 import com.github.kevinsawicki.http.HttpRequest;
+import no.cantara.base.command.BaseHttpGetHystrixCommand;
+import no.cantara.base.command.HttpSender;
 import no.cantara.service.commands.config.ConfigValue;
 import no.cantara.service.commands.config.ConstantValue;
-import no.cantara.service.commands.util.HttpSender;
 
 import java.net.URI;
 import java.util.Base64;
 
-public abstract class BaseGetCommand<T> extends BaseHttpGetHystrixCommand<T>{
+public abstract class BaseGetCommand<T> extends BaseHttpGetHystrixCommand<T> {
 
 	public BaseGetCommand(String hystrixGroupKey) {
 		super(URI.create(ConfigValue.CONFIGSERVICE_URL), hystrixGroupKey, ConstantValue.COMMAND_TIMEOUT);

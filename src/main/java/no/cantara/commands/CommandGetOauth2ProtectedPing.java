@@ -1,8 +1,8 @@
 package no.cantara.commands;
 
 import com.github.kevinsawicki.http.HttpRequest;
+import no.cantara.base.command.BaseHttpGetHystrixCommand;
 import no.cantara.commands.config.ConstantValue;
-import no.cantara.commands.util.basecommands.BaseHttpGetHystrixCommand;
 
 import java.net.URI;
 

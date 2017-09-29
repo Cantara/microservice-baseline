@@ -1,6 +1,6 @@
 package no.cantara.commands.oauth2;
 
-import no.cantara.commands.util.basecommands.BaseHttpPostHystrixCommand;
+import no.cantara.base.command.BaseHttpPostHystrixCommand;
 
 import java.net.HttpURLConnection;
 import java.net.URI;

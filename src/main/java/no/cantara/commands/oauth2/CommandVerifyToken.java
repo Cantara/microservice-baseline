@@ -1,7 +1,7 @@
 package no.cantara.commands.oauth2;
 
 import com.github.kevinsawicki.http.HttpRequest;
-import no.cantara.commands.util.basecommands.BaseHttpGetHystrixCommand;
+import no.cantara.base.command.BaseHttpGetHystrixCommand;
 
 import java.net.URI;
 
