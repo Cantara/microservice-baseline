@@ -39,9 +39,9 @@
     <properties>
         <service.name>microservice-baseline</service.name>
         <jackson.version>2.9.3</jackson.version>
-        <jersey.version>2.23</jersey.version>
+        <jersey.version>2.26</jersey.version>
         <jetty.version>9.4.8.v20171121</jetty.version>
-        <spring.version>5.0.2.RELEASE</spring.version>
+        <spring.version>5.0.1.RELEASE</spring.version>
         <slf4j.version>1.7.25</slf4j.version>
         <hystrix.version>1.5.12</hystrix.version>
         <maven.javadoc.skip>true</maven.javadoc.skip>
@@ -102,8 +102,8 @@
         <!-- https://jersey.java.net/documentation/latest/spring.html, allows Spring to inject into Jersey managed components -->
         <dependency>
             <groupId>org.glassfish.jersey.ext</groupId>
-            <artifactId>jersey-spring3</artifactId>
-            <version>${jersey.version}</version>
+            <artifactId>jersey-spring4</artifactId>
+            <version>2.26</version>
             <exclusions>
                 <exclusion>
                     <groupId>javax.inject</groupId>
@@ -138,6 +138,11 @@
                     <artifactId>commons-logging</artifactId>
                 </exclusion>
             </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context</artifactId>
+            <version>${spring.version}</version>
         </dependency>
         <dependency>
             <groupId>org.springframework</groupId>
