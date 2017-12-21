@@ -8,6 +8,7 @@ import no.cantara.util.Configuration;
 import org.eclipse.jetty.security.ConstraintMapping;
 import org.eclipse.jetty.security.ConstraintSecurityHandler;
 import org.eclipse.jetty.security.HashLoginService;
+import org.eclipse.jetty.security.UserStore;
 import org.eclipse.jetty.server.NCSARequestLog;
 import org.eclipse.jetty.server.Server;
 import org.eclipse.jetty.server.ServerConnector;
@@ -179,11 +180,13 @@ public class Main {
 
         String clientUsername = Configuration.getString("login.user");
         String clientPassword = Configuration.getString("login.password");
-        loginService.putUser(clientUsername, new Password(clientPassword), new String[]{USER_ROLE});
+        UserStore userStore = new UserStore();
+        userStore.addUser(clientUsername, new Password(clientPassword), new String[]{USER_ROLE});
 
         String adminUsername = Configuration.getString("login.admin.user");
         String adminPassword = Configuration.getString("login.admin.password");
-        loginService.putUser(adminUsername, new Password(adminPassword), new String[]{ADMIN_ROLE});
+        userStore.addUser(adminUsername, new Password(adminPassword), new String[]{ADMIN_ROLE});
+        loginService.setUserStore(userStore);
 
         log.debug("Main instantiated with basic auth clientuser={} and adminuser={}", clientUsername, adminUsername);
         securityHandler.setLoginService(loginService);
