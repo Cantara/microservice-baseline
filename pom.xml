@@ -38,10 +38,10 @@
 
     <properties>
         <service.name>microservice-baseline</service.name>
-        <jackson.version>2.9.6</jackson.version>
+        <jackson.version>2.9.7</jackson.version>
         <jersey.version>2.26</jersey.version>
-        <jetty.version>9.4.11.v20180605</jetty.version>
-        <spring.version>5.0.7.RELEASE</spring.version>
+        <jetty.version>9.4.12.v20180830</jetty.version>
+        <spring.version>5.0.9.RELEASE</spring.version>
         <slf4j.version>1.7.25</slf4j.version>
         <hystrix.version>1.5.12</hystrix.version>
         <maven.javadoc.skip>true</maven.javadoc.skip>
