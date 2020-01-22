@@ -2,7 +2,7 @@
 
 A typical simple baseline for building good microservices
 
-![GitHub tag (latest SemVer)](https://img.shields.io/github/v/tag/Cantara/Whydah-StatisticsService) ![Build Status](https://jenkins.quadim.ai/buildStatus/icon?job=microservice-baseline) - [![Project Status: Active – The project has reached a stable, usable state and is being actively developed.](http://www.repostatus.org/badges/latest/active.svg)](http://www.repostatus.org/#active)  [![Known Vulnerabilities](https://snyk.io/test/github/Cantara/microservice-baseline/badge.svg)](https://snyk.io/test/github/Cantara/microservice-baseline)
+![GitHub tag (latest SemVer)](https://img.shields.io/github/v/tag/Cantara/microservice-baseline) ![Build Status](https://jenkins.quadim.ai/buildStatus/icon?job=microservice-baseline) - [![Project Status: Active – The project has reached a stable, usable state and is being actively developed.](http://www.repostatus.org/badges/latest/active.svg)](http://www.repostatus.org/#active)  [![Known Vulnerabilities](https://snyk.io/test/github/Cantara/microservice-baseline/badge.svg)](https://snyk.io/test/github/Cantara/microservice-baseline)
 
 ### Documentation
 * https://wiki.cantara.no/display/architecture/Typical+micro+service+technology+stack+(java)
