@@ -1,4 +1,4 @@
-FROM cantara/alpine-zulu-jdk8
+FROM cantara/alpine-zulu-jdk13
 MAINTAINER Totto <totto@totto.org>
 
 ENV USER=microservice-baseline
@@ -51,7 +51,7 @@ RUN chown -R $USER:$USER $HOME
 ##Download application
 RUN su - $USER -c $HOME/update-service.sh
 
-RUN ln -s /usr/local/java/bin/java /usr/bin/java
+# RUN ln -s /usr/local/java/bin/java /usr/bin/java
 
 VOLUME ["$HOME/config_override", "$HOME/db", "$HOME/logs"]
 
