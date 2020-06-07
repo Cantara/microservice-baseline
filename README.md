@@ -10,6 +10,7 @@ A typical simple baseline for building good microservices
 
 ### Quick build and verify
 
+
 ```jshelllanguage
 mvn clean install
 java -jar target/microservice-baseline-0.1-SNAPSHOT.jar
