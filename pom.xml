@@ -2,7 +2,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>no.cantara.service</groupId>
     <artifactId>microservice-baseline</artifactId>
-    <version>0.5.1</version>
+    <version>0.5.3-SNAPSHOT</version>
     <name>microservice-baseline</name>
     <url>https://wiki.cantara.no/</url>
 
