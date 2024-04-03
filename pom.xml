@@ -2,7 +2,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>no.cantara.service</groupId>
     <artifactId>microservice-baseline</artifactId>
-    <version>0.7.3-SNAPSHOT</version>
+    <version>0.7.3</version>
     <name>microservice-baseline</name>
     <url>https://wiki.cantara.no/</url>
 
@@ -32,7 +32,7 @@
         <developerConnection>scm:git:ssh://git@github.com/cantara/microservice-baseline.git</developerConnection>
         <connection>scm:git:https://github.com/cantara/microservice-baseline.git</connection>
         <url>https://wiki.cantara.no/display/architecture/Typical+micro+service+technology+stack+(java)</url>
-      <tag>microservice-baseline-0.5.24</tag>
+      <tag>microservice-baseline-0.7.3</tag>
   </scm>
 
 
