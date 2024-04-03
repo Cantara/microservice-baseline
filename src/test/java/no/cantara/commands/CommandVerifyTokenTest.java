@@ -11,6 +11,7 @@ import org.testng.annotations.Test;
 
 import static org.junit.Assert.assertTrue;
 
+@Test
 public class CommandVerifyTokenTest {
     private final static Logger log = LoggerFactory.getLogger(CommandVerifyTokenTest.class);
 
