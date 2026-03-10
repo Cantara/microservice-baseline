@@ -1,0 +1,25 @@
+id: microservice-baseline
+name: Microservice Baseline
+version: 0.8.55-SNAPSHOT
+description: |
+  Opinionated baseline template for building Cantara microservices. Provides a
+  working starting point with health checks, configuration service integration,
+  Jersey REST, and Valuereporter monitoring baked in.
+units:
+  - id: service
+    name: Service
+    type: service
+    description: Baseline service bootstrap — embedded Jetty, Jersey JAX-RS, and lifecycle wiring.
+    path: src/main/java/no/cantara/service
+  - id: commands
+    name: Commands
+    type: component
+    description: Hystrix/Resilience4j command wrappers for resilient downstream service calls.
+  - id: health
+    name: Health
+    type: component
+    description: Health check endpoint conforming to Cantara health check conventions.
+  - id: simulator
+    name: Simulator
+    type: component
+    description: Test data simulator for generating synthetic load during development and testing.
