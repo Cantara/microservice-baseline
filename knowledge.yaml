@@ -1,3 +1,17 @@
+kcp_version: "0.21"
+updated: "2026-06-20"
+language: en
+license: "Apache-2.0"
+indexing: private
+temporal:
+  valid_from: "2026-03-10"
+signing:
+  scheme: ed25519
+  scope: this-manifest
+  public_key: "MCowBQYDK2VwAyEAuipgusnqU9vjf3p2yPVLD/DmERT6tBbLOqEETdxAhMU="
+  signature: "https://raw.githubusercontent.com/Cantara/microservice-baseline/master/knowledge.yaml.sig"
+not_for: []
+
 id: microservice-baseline
 name: Microservice Baseline
 version: 0.8.55-SNAPSHOT
@@ -11,15 +25,27 @@ units:
     type: service
     description: Baseline service bootstrap — embedded Jetty, Jersey JAX-RS, and lifecycle wiring.
     path: src/main/java/no/cantara/service
+      content_hash:
+        algorithm: sha256
+        value: ""
   - id: commands
     name: Commands
     type: component
     description: Hystrix/Resilience4j command wrappers for resilient downstream service calls.
+      content_hash:
+        algorithm: sha256
+        value: ""
   - id: health
     name: Health
     type: component
     description: Health check endpoint conforming to Cantara health check conventions.
+      content_hash:
+        algorithm: sha256
+        value: ""
   - id: simulator
     name: Simulator
     type: component
     description: Test data simulator for generating synthetic load during development and testing.
+      content_hash:
+        algorithm: sha256
+        value: ""
