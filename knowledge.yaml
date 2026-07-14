@@ -1,4 +1,4 @@
-kcp_version: "0.21"
+kcp_version: "0.26"
 updated: "2026-06-20"
 language: en
 license: "Apache-2.0"
@@ -25,27 +25,23 @@ units:
     type: service
     description: Baseline service bootstrap — embedded Jetty, Jersey JAX-RS, and lifecycle wiring.
     path: src/main/java/no/cantara/service
-      content_hash:
-        algorithm: sha256
-        value: ""
   - id: commands
     name: Commands
     type: component
     description: Hystrix/Resilience4j command wrappers for resilient downstream service calls.
-      content_hash:
-        algorithm: sha256
-        value: ""
   - id: health
     name: Health
     type: component
     description: Health check endpoint conforming to Cantara health check conventions.
-      content_hash:
-        algorithm: sha256
-        value: ""
   - id: simulator
     name: Simulator
     type: component
     description: Test data simulator for generating synthetic load during development and testing.
-      content_hash:
-        algorithm: sha256
-        value: ""
+
+# Serving Endpoint Binding (KCP SPEC v0.26 §3.12): authoritative manifest URL
+# and authorized MCP representative. Ignored by pre-0.26 verifiers.
+serving:
+  manifest:
+    - https://raw.githubusercontent.com/Cantara/microservice-baseline/master/knowledge.yaml
+  mcp:
+    - https://mcp.cantara.no/mcp
