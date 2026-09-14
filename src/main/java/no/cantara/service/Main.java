@@ -5,17 +5,17 @@ import no.cantara.service.oauth2ping.PingResource;
 import no.cantara.simulator.oauth2stubbedserver.OAuth2StubbedServerResource;
 import no.cantara.simulator.oauth2stubbedserver.OAuth2StubbedTokenVerifyResource;
 import no.cantara.util.Configuration;
-import org.eclipse.jetty.security.ConstraintMapping;
-import org.eclipse.jetty.security.ConstraintSecurityHandler;
+import org.eclipse.jetty.ee10.servlet.security.ConstraintMapping;
+import org.eclipse.jetty.ee10.servlet.security.ConstraintSecurityHandler;
 import org.eclipse.jetty.security.HashLoginService;
 import org.eclipse.jetty.security.UserStore;
 import org.eclipse.jetty.server.CustomRequestLog;
 import org.eclipse.jetty.server.RequestLogWriter;
 import org.eclipse.jetty.server.Server;
 import org.eclipse.jetty.server.ServerConnector;
-import org.eclipse.jetty.servlet.ServletContextHandler;
-import org.eclipse.jetty.servlet.ServletHolder;
-import org.eclipse.jetty.util.security.Constraint;
+import org.eclipse.jetty.ee10.servlet.ServletContextHandler;
+import org.eclipse.jetty.ee10.servlet.ServletHolder;
+import org.eclipse.jetty.security.Constraint;
 import org.eclipse.jetty.util.security.Password;
 import org.glassfish.jersey.server.ResourceConfig;
 import org.glassfish.jersey.servlet.ServletContainer;
@@ -132,15 +132,10 @@ public class Main {
     }
 
     private ConstraintSecurityHandler buildSecurityHandler() {
-        Constraint userRoleConstraint = new Constraint();
-        userRoleConstraint.setName(Constraint.__BASIC_AUTH);
-        userRoleConstraint.setRoles(new String[]{USER_ROLE, ADMIN_ROLE});
-        userRoleConstraint.setAuthenticate(true);
+        // Jetty 12: a role-restricted constraint implies authentication.
+        Constraint userRoleConstraint = Constraint.from(USER_ROLE, ADMIN_ROLE);
 
-        Constraint adminRoleConstraint = new Constraint();
-        adminRoleConstraint.setName(Constraint.__BASIC_AUTH);
-        adminRoleConstraint.setRoles(new String[]{ADMIN_ROLE});
-        adminRoleConstraint.setAuthenticate(true);
+        Constraint adminRoleConstraint = Constraint.from(ADMIN_ROLE);
 
         ConstraintMapping clientConstraintMapping = new ConstraintMapping();
         clientConstraintMapping.setConstraint(userRoleConstraint);
@@ -156,26 +151,26 @@ public class Main {
 
         // Allow healthresource to be accessed without authentication
         ConstraintMapping healthEndpointConstraintMapping = new ConstraintMapping();
-        healthEndpointConstraintMapping.setConstraint(new Constraint(Constraint.NONE, Constraint.ANY_ROLE));
+        healthEndpointConstraintMapping.setConstraint(Constraint.ALLOWED);
         healthEndpointConstraintMapping.setPathSpec(HealthResource.HEALTH_PATH);
         securityHandler.addConstraintMapping(healthEndpointConstraintMapping);
 
         // Allow OAuth2StubbedServerResource to be accessed without authentication
         ConstraintMapping oauthserverEndpointConstraintMapping = new ConstraintMapping();
-        oauthserverEndpointConstraintMapping.setConstraint(new Constraint(Constraint.NONE, Constraint.ANY_ROLE));
+        oauthserverEndpointConstraintMapping.setConstraint(Constraint.ALLOWED);
         oauthserverEndpointConstraintMapping.setPathSpec(OAuth2StubbedServerResource.OAUTH2TOKENSERVER_PATH);
         securityHandler.addConstraintMapping(oauthserverEndpointConstraintMapping);
 
         // Allow OAuth2StubbedServerResource to be accessed without authentication
         ConstraintMapping pingEndpointConstraintMapping = new ConstraintMapping();
-        pingEndpointConstraintMapping.setConstraint(new Constraint(Constraint.NONE, Constraint.ANY_ROLE));
+        pingEndpointConstraintMapping.setConstraint(Constraint.ALLOWED);
         pingEndpointConstraintMapping.setPathSpec(PingResource.PING_PATH);
         securityHandler.addConstraintMapping(pingEndpointConstraintMapping);
 
 
         // Allow tokenverifyerResource to be accessed without authentication
         ConstraintMapping tokenVerifyConstraintMapping = new ConstraintMapping();
-        tokenVerifyConstraintMapping.setConstraint(new Constraint(Constraint.NONE, Constraint.ANY_ROLE));
+        tokenVerifyConstraintMapping.setConstraint(Constraint.ALLOWED);
         tokenVerifyConstraintMapping.setPathSpec(OAuth2StubbedTokenVerifyResource.OAUTH2TOKENVERIFY_PATH);
         securityHandler.addConstraintMapping(tokenVerifyConstraintMapping);
 
